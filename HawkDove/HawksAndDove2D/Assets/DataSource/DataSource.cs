@@ -5,63 +5,32 @@ using System;
 
 public class DataSource
 {
-    private int numberOfDoves, numberOfHawks, numberOfFood;
+    private int numDoves, numHawks, numFood;
     public static DataSource obj;
-    private static readonly System.Random random = new System.Random();
-    private static readonly object syncLock = new object();
+    private DataSource(){}
 
-    public int getNumberOfDoves()
-    {
-        return numberOfDoves;
-    }
+    public int getNumberOfDoves(){ return numDoves; }
 
-    public int getNumberOfHawks()
-    {
-        return numberOfHawks;
-    }
+    public int getNumberOfHawks() { return numHawks; }
 
-    public int getNumberOfFood()
-    {
-        return numberOfFood;
-    }
+    public int getNumberOfFood() { return numFood; }
 
-    public void setNumberOfDoves(int Value)
-    {
-        this.numberOfDoves = Value;
-    }
+    public void setNumberOfDoves(int val) { this.numDoves = val; }
 
-    public void setNumberOfHawks(int Value)
-    {
-        this.numberOfHawks = Value;
-    }
-    public void setNumberOfFood(int Value)
-    {
-        this.numberOfFood = Value;
-    }
+    public void setNumberOfHawks(int val) { this.numHawks = val; }
+    public void setNumberOfFood(int val) { this.numFood = val; }
 
     public int getHealth()
     {
         List<int> health = new List<int>() { 100, 80, 60, 40, 20 };
-        /* lock (syncLock)
-         {
-             return health[random.Next(health.Count)];
-         } */
-
-        System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
-        return health[random.Next(0, health.Count)];
+        return health[new System.Random(Guid.NewGuid().GetHashCode()).Next(health.Count)];
     }
 
-    private DataSource()
-    {
-
-    }
 
     public static DataSource getSingletonInstance()
     {
         if (obj == null)
-        {
             obj = new DataSource();
-        }
         return obj;
     }
 
