@@ -10,7 +10,7 @@ public class DataSource
     private static readonly System.Random random = new System.Random();
     private static readonly object syncLock = new object();
 
-    public int getNumberOfDove()
+    public int getNumberOfDoves()
     {
         return numberOfDoves;
     }
@@ -25,7 +25,7 @@ public class DataSource
         return numberOfFood;
     }
 
-    public void setNumberOfDove(int Value)
+    public void setNumberOfDoves(int Value)
     {
         this.numberOfDoves = Value;
     }

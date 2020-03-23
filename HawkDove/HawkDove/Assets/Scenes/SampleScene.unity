@@ -7973,6 +7973,7 @@ GameObject:
   - component: {fileID: 2067425186}
   - component: {fileID: 2067425185}
   - component: {fileID: 2067425184}
+  - component: {fileID: 2067425187}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -8039,7 +8040,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2067425185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2067425187}
+        m_MethodName: check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2067425185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8075,6 +8087,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067425182}
   m_CullTransparentMesh: 0
+--- !u!114 &2067425187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067425182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0283423ecd0ea4b4ab5b4fe4d5f03b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hawks: {fileID: 516639129}
+  Doves: {fileID: 79876378}
+  Food: {fileID: 1720102893}
 --- !u!1 &2081599029
 GameObject:
   m_ObjectHideFlags: 0

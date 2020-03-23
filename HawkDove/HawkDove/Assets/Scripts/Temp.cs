@@ -25,11 +25,11 @@ public class Temp : MonoBehaviour
         File.AppendAllText(fileName, "ID,Health,Type\n");
 
         int count = 1;
-        while (count <= obj.getNumberOfDove() + obj.getNumberOfHawks()){
+        while (count <= obj.getNumberOfDoves() + obj.getNumberOfHawks()){
             int ID = count;
             int Health = obj.getHealth();
             string Type = "Dove";
-            if (!Type.Equals("Hawk") && (count > obj.getNumberOfDove()))
+            if (!Type.Equals("Hawk") && (count > obj.getNumberOfDoves()))
                 Type = "Hawk";
             File.AppendAllText(fileName, ID.ToString() + "," + Health.ToString() + "," + Type + "\n");
             count++;
