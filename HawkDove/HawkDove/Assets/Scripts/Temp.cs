@@ -20,7 +20,7 @@ public class Temp : MonoBehaviour
 
         DataSource obj = DataSource.getSingletonInstance();
 
-        string fileName = Directory.GetParent(Application.dataPath.ToString()).ToString() + "\\CSV\\file-" + DateTime.Now.ToString("HH-mm-ss__MM-dd-yyyy").ToString() + ".csv";
+        string fileName = Directory.GetParent(Application.dataPath.ToString()).ToString() + "\\CSV\\file-" + DateTime.Now.ToString("HH-mm-ss-MM-dd-yyyy").ToString() + ".csv";
         File.AppendAllText(fileName, "ID,Health,Type\n");
 
         int count = 1;

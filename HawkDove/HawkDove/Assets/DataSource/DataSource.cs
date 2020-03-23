@@ -42,9 +42,8 @@ public class DataSource
     public int getHealth()
     {
         List<int> health = new List<int>() { 100, 80, 60, 40, 20 };
-        lock (syncLock) {
-            return health[random.Next(health.Count)];
-        }
+        System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
+        return health[random.Next(0, health.Count)];
     }
 
     private DataSource()
