@@ -8,6 +8,7 @@ using UnityEngine;
 public class Temp : MonoBehaviour
 {
     // Start is called before the first frame update
+    private int FileCount = 0;
     void Start()
     {
 
@@ -15,16 +16,23 @@ public class Temp : MonoBehaviour
 
     public void addRecord()
     {
-        for (int i=0; i < 5; i++)
-        {
-            string fileName = Application.dataPath + "/file_" + i.ToString() + "-" + DateTime.Now.ToString("HH-mm-ss-MM-dd-yyyy") + ".csv";
-            File.AppendAllText(fileName, i.ToString() + ",asdasd,asdasd");
-            File.AppendAllText(fileName, "asdasd\n");
+        FileCount++;
 
-            File.AppendAllText(fileName, "asdasd\n");
-            File.AppendAllText(fileName, "asdasd\n");
-            File.AppendAllText(fileName, "asdasd\n");
-            //File.AppendAllLines(fileName, List<string>["asdasd","asdasd","asdasd"]);
+        DataSource obj = DataSource.getSingletonInstance();
+
+        string fileName = Application.dataPath + "/file-" + DateTime.Now.ToString("HH-mm-ss-MM-dd-yyyy") + ".csv";
+
+        File.AppendAllText(fileName, "ID,Health,Type\n");
+
+        int count = 1;
+        while (count <= obj.getNumberOfDove() + obj.getNumberOfHawks()){
+            int ID = count;
+            int Health = obj.getHealth();
+            string Type = "Dove";
+            if (!Type.Equals("Hawk") && (count > obj.getNumberOfDove()))
+                Type = "Hawk";
+            File.AppendAllText(fileName, ID.ToString() + "," + Health.ToString() + "," + Type + "\n");
+            count++;
         }
     }
 
@@ -32,5 +40,9 @@ public class Temp : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnDestroy()
+    {
+        FileCount = 0;
     }
 }
