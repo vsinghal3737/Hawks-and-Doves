@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,9 +22,11 @@ public class input : MonoBehaviour
         obj.setNumberOfHawks(Int32.Parse(Hawks.text.Replace("\u200B", "").ToString()));
         obj.setNumberOfDoves(Int32.Parse(Doves.text.Replace("\u200B", "").ToString()));
         obj.setNumberOfFood(Int32.Parse(Food.text.Replace("\u200B", "").ToString()));
-        Debug.Log(obj.getNumberOfDoves());
-        Debug.Log(obj.getNumberOfHawks());
-        Debug.Log(obj.getNumberOfFood());
+        //        Debug.Log(obj.getNumberOfDoves());
+        //        Debug.Log(obj.getNumberOfHawks());
+        //        Debug.Log(obj.getNumberOfFood());
+        Debug.Log(AppDomain.CurrentDomain.BaseDirectory.ToString());
+        
     }
 
     // Update is called once per frame
