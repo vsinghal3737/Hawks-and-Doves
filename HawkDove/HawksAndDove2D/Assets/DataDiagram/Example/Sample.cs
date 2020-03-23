@@ -29,7 +29,7 @@ public class Sample : MonoBehaviour {
 
         GameObject dd = GameObject.Find("DataDiagram");
         if(null == dd) {
-            Debug.LogWarning("can not find a gameobject of DataDiagram");
+            //Debug.LogWarning("can not find a gameobject of DataDiagram");
             return;
         }
         m_DataDiagram = dd.GetComponent<DD_DataDiagram>();
@@ -65,13 +65,16 @@ public class Sample : MonoBehaviour {
         float[] graphsPoints = getScaledValues(maxVal, data.getNumberOfDoves(), data.getNumberOfHawks(), data.getNumberOfFood());
         int index = 0;
         float pointVal = 0f;
+//        Debug.Log("asdnfkjdgnkddgf");
+//        Debug.Log(graphsPoints[0]);
+//        Debug.Log(graphsPoints[1]);
+//        Debug.Log(graphsPoints[2]);
         foreach (GameObject l in lineList)
         {
             pointVal += graphsPoints[index];
-            Debug.Log("Graph Points:" + pointVal);
-            m_DataDiagram.InputPoint(l, new Vector2(0.1f,
-                (Mathf.Sin(f + pointVal) + 1f) * 2f));
-            index += 1;
+            //Debug.Log("Graph Points:" + pointVal);
+            m_DataDiagram.InputPoint(l, new Vector2(0.1f, (Mathf.Sin(f + pointVal) + 1f) * 2f));
+            index++;
         }
     }
 
@@ -86,7 +89,16 @@ public class Sample : MonoBehaviour {
         graphsPoints[0] = hawks / check;
         graphsPoints[1] = dove / check;
         graphsPoints[2] = food / check;
-
+ /*       Debug.Log("asdasda");
+        Debug.Log(check);
+        Debug.Log(hawks);
+        
+        Debug.Log(graphsPoints[0]);
+        Debug.Log(graphsPoints[1]);
+        Debug.Log(graphsPoints[2]);
+        Debug.Log("asdasda");
+        Debug.Log(graphsPoints);
+*/
         return graphsPoints;
     }
 
